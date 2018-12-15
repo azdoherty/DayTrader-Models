@@ -4,16 +4,17 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
 
-engine = create_engine('sqlite:///calendar.db', echo=True)
+engine = create_engine('sqlite:///test.db', echo=True)
 base = declarative_base()
 metadata = MetaData()
+metadata.create_all(engine)
 
 Institutions = Table('Institutions', metadata,
    Column('id', Integer, Sequence('user_id_seq'), primary_key=True),
    Column('name', String(50)),
    Column('symbol', String(50)),
 )
-metadata.create_all(engine)
+
 
 companySymbols = {"Apple": "AAPL",
                   "Micron": "MU",
@@ -28,5 +29,6 @@ print(entries)
 conn = engine.connect()
 ins = Institutions.insert()
 conn.execute(ins, entries)
+
 
 
