@@ -8,12 +8,20 @@ engine = create_engine('sqlite:///calendar.db', echo=True)
 base = declarative_base()
 
 
-class Calendar(base):
+class Events(base):
     __tablename__ = "Calendar"
     id = Column(Integer, primary_key=True)
     event = Column(String)
     date = Column(Date)
     institution = relationship("Institution")
+    institution_id = Column(Integer, ForeignKey("Institution.id"))
+
+
+class EventTypes(base):
+    _tablename = "EventTypes"
+    id = Column(Integer, primary_key=True)
+    type = Column(String)
+    description = Column(String)
 
 
 class Institution(base):
