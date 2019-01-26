@@ -11,9 +11,9 @@ companySymbols = {"Apple": "AAPL",
                   "Federal Reserve": None
                   }
 
+
 def add_events():
     pass
-
 
 
 def main():
