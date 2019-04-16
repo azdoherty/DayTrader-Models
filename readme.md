@@ -1,6 +1,6 @@
-#EconCalendar
+# DayTrader-Models
 
-An app for visualizing stock price movements relative to important news events.
+Workspace for taking data from DayTrader and prototyping new algorithms and models
 
 ### Setup
 
